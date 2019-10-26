@@ -56,7 +56,7 @@ General introduction of WRF model is avaiable at
 https://www.mmm.ucar.edu/weather-research-and-forecasting-model
 ```
 
-*** Requirements `A linux system (like Ubuntu 16.04),and basci knowlogde of linux, command of shell and fortran`
+*** Requirements: a linux system (like Ubuntu 16.04),and basci knowlogde of linux, command of shell and fortran
 
 ### 1.2.1. Install WRF
 Detailed steps can be checked here: 
