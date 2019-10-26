@@ -179,16 +179,16 @@ In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the author
 
 The model train process can be started with (runging in linux backend):
 ```bash
-nohup python -u dcrnn_train_sz.py --config_filename=data/model/dcrnn_sz.yaml > dcrnn_train_sz.out 2>&1 &
+nohup python -u dcrnn_train_sz.py --config_filename=dcrnn_sz.yaml > dcrnn_train_sz.out 2>&1 &
 ```
-Each epoch takes about 100s-400s on a single RTX Titan, depending on the computation complexity. `data/model/dcrnn_sz.yaml` is the config files of the model training. 
+Each epoch takes about 100s-400s on a single RTX Titan, depending on the computation complexity. `dcrnn_sz.yaml` is the config files of the model training. 
 
 ## 2. Model Prediction
 The model inference process can be started with (runging in linux backend):
 ```bash
-nohup python -u run_inference_sz.py --config_filename=data/model/config_inference_sz.yaml  --output_filename=data/dcrnn_predictions_sz.npz > run_demo_sz_ts12.out 2>&1 & 
+nohup python -u run_inference_sz.py --config_filename=config_inference_sz.yaml  --output_filename=data/dcrnn_predictions_sz.npz > run_demo_sz_ts12.out 2>&1 & 
 ```
-Note, `data/model/config_inference_sz.yaml` is the config files of the model inference.  
+Note, `config_inference_sz.yaml` is the config files of the model inference.  
 
 ## Acknowledgements
 
