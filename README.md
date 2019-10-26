@@ -45,7 +45,11 @@ Researchers can apply a full dataset by themselves from GAIA Open Dataset Initia
 
 
 ### 1.2 meteorological data
-Generally, hourly averaged meteorological data are accessed from the National Center for Atmospheric Research (NCAR), and then processed with the Weather Research and Forecasting (WRF) model to produce grid meteorological and weather forecast data. One of advantages of employing grid meteorological data is that we can have specific meteorological features in each grid (like a grid spacing of 5 km, e.g. 20 * 40 in shenzhen, totally 800 grids). However, if we only use the monitoring station data, at most time we could just konw the general meteorological status because of the sparse distribution of urban meteorological monitoring stations (like 5-10 stations in a city). We can access and generate the WRF meteorological data by ourselves, here is the steps for production of meteorological data.
+Generally, hourly averaged meteorological data are accessed from the National Center for Atmospheric Research (NCAR), and then processed with the Weather Research and Forecasting (WRF) model to produce grid meteorological and weather forecast data. One of advantages of employing grid meteorological data is that we can have specific meteorological features in each grid (like a grid spacing of 5 km, e.g. 20 * 40 in shenzhen, totally 800 grids). However, if we only use the monitoring station data, at most time we could just konw the general meteorological status because of the sparse distribution of urban meteorological monitoring stations (like 5-10 stations in a city).
+
+The meteorological data we used is avaliable at [Baidu Yun](https://pan.baidu.com/s/1v7FTyb2VpLghoFg86V4E5w). A sample of raw meteorological data is also avaliable here.
+
+If you would like to conduct resilience research in other cities, you can access and generate the WRF meteorological data by yourselves. Here are the steps for production of meteorological data.
 
 General introduction of WRF model is avaiable at 
 ```bash
