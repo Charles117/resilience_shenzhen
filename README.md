@@ -169,14 +169,14 @@ python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/graph_sens
 More details can be checked in the github of original DCRNN authors: `https://github.com/liyaguang/DCRNN`.
 
 
-## 2. Model Training
+## 3. Model Training
 In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the authors claimed that the model could "maps P-dimensional features to Q-dimensional outputs". However, there were still some bugs when we really applied a P-to-Q dimension modelling. Thus, we checked tha codes and fixed these bugs in the revised codes. There are several things needed to be paid attention before you employ DCRNN in your research.
 
-1. Data preprocessing. When you apply a P-to-Q dimension modelling, you cannot just set the output dimension as Q, there would be errors reported. You need to keep the dimension of input and output equal, with padding some zeros dimensions into output. For example, if input dim is 10 and output dim is 1, and you need to pad 9 zero-dims into output. In [data_preprocessing/merge_data_and_build_input.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/merge_data_and_build_input.py), we already have done this operations, you can feel free to use the codes directly.
+(1) Data preprocessing. When you apply a P-to-Q dimension modelling, you cannot just set the output dimension as Q, there would be errors reported. You need to keep the dimension of input and output equal, with padding some zeros dimensions into output. For example, if input dim is 10 and output dim is 1, and you need to pad 9 zero-dims into output. In [data_preprocessing/merge_data_and_build_input.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/merge_data_and_build_input.py), we already have done this operations, you can feel free to use the codes directly.
 
-2. Loss functions. The loss function cannot be directly changed in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). You need to change the codes in [model/dcrnn_supervisor.py](https://github.com/Charles117/resilience_shenzhen/tree/master/model/dcrnn_supervisor.py), `Line 79, 233-234, 285-294` to other loss functions. Remember, import the metrics first, like `from lib.metrics import masked_mae_loss, masked_rmse_loss, masked_mse_loss`
+(2) Loss functions. The loss function cannot be directly changed in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). You need to change the codes in [model/dcrnn_supervisor.py](https://github.com/Charles117/resilience_shenzhen/tree/master/model/dcrnn_supervisor.py), `Line 79, 233-234, 285-294` to other loss functions. Remember, import the metrics first, like `from lib.metrics import masked_mae_loss, masked_rmse_loss, masked_mse_loss`
 
-3. Hyper-parameters. The major hyper-meter of DCRNN are iffusion stes, nodes and layers, which can be tuned in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). The name of the file of a well-trained model means `diffusion_step-timestep-nodes(layers)-learning_rate-batchsize`, e.g. dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4. 
+(3) Hyper-parameters. The major hyper-meter of DCRNN are iffusion stes, nodes and layers, which can be tuned in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). The name of the file of a well-trained model means `diffusion_step-timestep-nodes(layers)-learning_rate-batchsize`, e.g. dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4. 
 
 The model train process can be started with (runging in linux backend):
 ```bash
@@ -184,7 +184,7 @@ nohup python -u dcrnn_train_sz.py --config_filename=dcrnn_sz.yaml > dcrnn_train_
 ```
 Each epoch takes about 100s-400s on a single RTX Titan, depending on the computation complexity. [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml) is the config file of the model training. 
 
-## 2. Model Prediction
+## 4. Model Prediction
 The model inference process can be started with (runging in linux backend):
 ```bash
 nohup python -u run_inference_sz.py --config_filename=config_inference_sz.yaml  --output_filename=data/dcrnn_predictions_sz.npz > run_demo_sz_ts12.out 2>&1 & 
