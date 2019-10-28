@@ -1,6 +1,6 @@
 # Evaluation and prediction of transportation resilience under extreme weather events: A diffusion graph convolutional approach
 
-![Diffusion Convolutional Recurrent Neural Network](figures/model_architecture.jpg "Model Architecture") 
+![Diffusion Convolutional Recurrent Neural Network](figures/model_architecture.jpg "Model Architecture")
 
 In this study, a novel end to end deep learning framework is proposed to estimate and predict the spatiotemporal patterns of transportation resilience under extreme weather events. The framework is based on the Diffusion Graph Convolutional Recurrent Neural Network (DCRNN) and the dynamic-capturing algorithm of resilience. The model can fully extract and adaptively learn the spatiotemporal features of urban transportation network, with integrating temporal and topological-spatial modeling. The on-demand ride services data provided by DiDi Chuxing and auxiliary grid meteorological data are employed to estimate the characteristics of real-world transportation resilience and validate the spatiotemporal predictions of resilience. 
 
@@ -174,7 +174,7 @@ In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the author
 
 1. Data preprocessing. When you apply a P-to-Q dimension modelling, you cannot just set the output dimension as Q, there would be errors reported. You need to keep the dimension of input and output equal, with padding some zeros dimensions into output. For example, if input dim is 10 and output dim is 1, and you need to pad 9 zero-dims into output. In [data_preprocessing/merge_data_and_build_input.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/merge_data_and_build_input.py), we already have done this operations, you can feel free to use the codes directly.
 
-2. Loss functions. The loss function cannot be directly changed in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). You need to change the codes in [dcrnn_supervisor.py](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_supervisor.py), `Line 79, 233-234, 285-294` to other loss functions. Remember, import the metrics first, like `from lib.metrics import masked_mae_loss, masked_rmse_loss, masked_mse_loss`
+2. Loss functions. The loss function cannot be directly changed in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). You need to change the codes in [model/dcrnn_supervisor.py](https://github.com/Charles117/resilience_shenzhen/tree/master/model/dcrnn_supervisor.py), `Line 79, 233-234, 285-294` to other loss functions. Remember, import the metrics first, like `from lib.metrics import masked_mae_loss, masked_rmse_loss, masked_mse_loss`
 
 3. Hyper-parameters. The major hyper-meter of DCRNN are iffusion stes, nodes and layers, which can be tuned in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). The name of the file of a well-trained model means `diffusion_step-timestep-nodes(layers)-learning_rate-batchsize`, e.g. dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4. 
 
