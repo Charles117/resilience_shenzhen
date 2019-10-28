@@ -1,6 +1,6 @@
 # Evaluation and prediction of transportation resilience under extreme weather events: A diffusion graph convolutional approach
 
-![Diffusion Convolutional Recurrent Neural Network](figures/model_architecture.jpg "Model Architecture")
+![Diffusion Convolutional Recurrent Neural Network](figures/model_architecture.jpg "Model Architecture") 
 
 In this study, a novel end to end deep learning framework is proposed to estimate and predict the spatiotemporal patterns of transportation resilience under extreme weather events. The framework is based on the Diffusion Graph Convolutional Recurrent Neural Network (DCRNN) and the dynamic-capturing algorithm of resilience. The model can fully extract and adaptively learn the spatiotemporal features of urban transportation network, with integrating temporal and topological-spatial modeling. The on-demand ride services data provided by DiDi Chuxing and auxiliary grid meteorological data are employed to estimate the characteristics of real-world transportation resilience and validate the spatiotemporal predictions of resilience. 
 
