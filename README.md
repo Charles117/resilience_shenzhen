@@ -8,7 +8,7 @@ This research was conducted based on the results of Hongwei Wang (the first auth
 ```bash
 https://outreach.didichuxing.com/research/opendata/en/
 ```
-The codes of this research also partly belong to DiDi, but we could publish part of them after several rounds of talks with DiDi. We can open the codes of data collection and preprocessing, and the revised codes of DCRNN according to our research. The detailed pseudo-codes have already been provided in the paper. 
+The codes of this research also partly belong to DiDi, but we could publish part of them after several rounds of talks with DiDi. We can open the codes of data collection and preprocessing, and the revised codes of DCRNN according to our research. The detailed pseudo-codes have already been provided in the paper.  
 
 ### Requirements
 - scipy>=0.19.0
