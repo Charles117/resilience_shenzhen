@@ -170,7 +170,9 @@ More details can be checked in the github of original DCRNN: `https://github.com
 
 
 ## 3. Model Training
-In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the authors implemented an experiment of one-dim feature input (previous speed) to one-dim feature output (future speed), and claimed that the model could also map "N-dimensional features to M-dimensional outputs". However, there were still some bugs when we really implemented a N-to-M dimension modelling. Thus, we checked tha codes and fixed these bugs in the revised codes. There are several things needed to be paid attention before you employ DCRNN in your research.
+In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the authors implemented an experiment of one-dim feature input (previous speed) to one-dim feature output (future speed), and claimed that the model could also map "N-dimensional features to M-dimensional outputs". However, there were still some bugs when we really implemented a N-to-M dimension modelling. Thus, we checked tha codes and fixed these bugs in the revised codes. 
+
+Additionally, several things should be paid attention to before you employ DCRNN in your research.
 
 (1) Data preprocessing. When you implement a N-to-M dimension modelling, you cannot just set the output dimension as M, there would be errors reported. You need to keep the dimensions of input and output equal, with padding some zeros dimensions into output. For example, if input dim is 10 and output dim is 1, and you need to pad 9 zero-dims into output. In [data_preprocessing/merge_data_and_build_input.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/merge_data_and_build_input.py), we already have done this operations, you can feel free to use the codes directly.
 
