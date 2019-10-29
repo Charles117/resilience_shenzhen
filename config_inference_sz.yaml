@@ -33,7 +33,7 @@ train:
   max_to_keep: 100
   min_learning_rate: 2.0e-06
 
-  model_filename: data/model/dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4_0925003108/models-1.0807-3955   # ts5, direct, rmse loss, dr1
+  model_filename: data/model/dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4_0925003108/models-1.0807-3955  
 
 
   optimizer: adam
