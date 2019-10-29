@@ -4,7 +4,7 @@
 
 In this study, a novel end to end deep learning framework is proposed to estimate and predict the spatiotemporal patterns of transportation resilience under extreme weather events. The framework is based on the Diffusion Graph Convolutional Recurrent Neural Network (DCRNN) and the dynamic-capturing algorithm of resilience. The model can fully extract and adaptively learn the spatiotemporal features of urban transportation network, with integrating temporal and topological-spatial modeling. The on-demand ride services data provided by DiDi Chuxing and auxiliary grid meteorological data are employed to estimate the characteristics of real-world transportation resilience and validate the spatiotemporal predictions of resilience. 
 
-This research was conducted based on the results of Hongwei Wang (the first author) ’s research intern in DiDi Smart Transportation. The traffic data of the research were extracted from the commercial cloud database of DiDi, and were temporarily classified due to the DiDi’s concerns about privacy and information security. We have already made efforts to publish part of the data, but the application was still in progress. Alternatively, researchers can apply for a full traffic dataset from GAIA Open Dataset Initiative of DiDi, which is an open dataset project to provide academic community with real-life application use cases, anonymized data, and computing resources. More details of GAIA Open Dataset Initiative are available in
+This research was conducted based on the results of Hongwei Wang (the first author) ’s research intern in DiDi Smart Transportation. The traffic data of the research were extracted from the commercial cloud database of DiDi, and were temporarily classified due to the DiDi’s concerns about privacy and information security. We have already made efforts to publish part of the data, but the application was still in progress. Alternatively, researchers can apply for a full traffic dataset from GAIA Open Dataset Initiative of DiDi, which is an open dataset project to provide academic community with real-life application use cases, anonymized data, and computing resources. More details of GAIA Open Dataset Initiative are available at
 ```bash
 https://outreach.didichuxing.com/research/opendata/en/
 ```
@@ -81,7 +81,7 @@ http://www2.mmm.ucar.edu/wrf/src/wps_files/geog_new3.9.tar.bz2
 ```
 
 ### (2) Real-time data: ds083 data
-You need to first register a account in 
+You need to first register a account at 
 ```bash
 https://rda.ucar.edu
 ```
@@ -122,7 +122,7 @@ source activate ncl_stable
 ```
 You will need to run the `source activate ncl_stable` command every time you log out and log back in.
 
-More details of NCL in python is avaiable in 
+More details of NCL in python is avaiable at 
 ```bash
 https://www.ncl.ucar.edu/Download/conda.shtml
 ```
@@ -134,7 +134,7 @@ To create a conda environment and install the desired packages, type the followi
 conda create -n wrf_tutorial -c ncar -c khallock -c bladwig pynio basemap jupyter pyngl wrf-python xarray
 conda install netcdf4
 ```
-More details of wrf-python is avaiable in `http://www.ncl.ucar.edu/Training/Tutorials/WRF_Users_Workshop/python.shtml`
+More details of wrf-python is avaiable at `http://www.ncl.ucar.edu/Training/Tutorials/WRF_Users_Workshop/python.shtml`
 
 ## 2. Data Preprocessing
 
