@@ -57,7 +57,7 @@ https://www.mmm.ucar.edu/weather-research-and-forecasting-model
 ```
 The handbook of WRF is here [WRF\WRFUsersGuide.pdf](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/WRFUsersGuide.pdf)
 
-*** Requirements: a linux system (like Ubuntu 16.04), and basic knowlogde of linux, fortran, and commands of shell.
+*** Requirements: a linux system (like Ubuntu 16.04), and basic knowlogde about linux, fortran, and commands of shell.
 
 ### 1.2.1. Install WRF
 Detailed steps can be checked here: 
