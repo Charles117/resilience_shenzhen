@@ -57,7 +57,7 @@ https://www.mmm.ucar.edu/weather-research-and-forecasting-model
 ```
 The handbook of WRF is here [WRF\WRFUsersGuide.pdf](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/WRFUsersGuide.pdf)
 
-*** Requirements: a linux system (like Ubuntu 16.04),and basic knowlogde of linux, command of shell and fortran
+*** Requirements: a linux system (like Ubuntu 16.04), and basic knowlogde of linux, command of shell and fortran.
 
 ### 1.2.1. Install WRF
 Detailed steps can be checked here: 
@@ -100,7 +100,7 @@ https://rda.ucar.edu/datasets/ds083.2/index.html#sfol-wl-/data/ds083.2?g=22019
 ```
 Note: DO NOT DOWNLOAD grib2.nc FORMAT DATA.
 
-### (3) Apply Static Geography Data and Real-time Data
+### (3) Apply Static Geography Data and Real-time Data in WRF model
 See steps of 6. Static Geography Dat; 7. Real-time Data in the compilation tutorial `http://www2.mmm.ucar.edu/wrf/OnLineTutorial/compilation_tutorial.php` to know how to use the data.
 
 ### 1.2.3. Run WPS and WRF
@@ -166,7 +166,7 @@ Codes can be checked here:
 python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/graph_sensor_ids.txt --normalized_k=0.1\
     --output_pkl_filename=data/sensor_graph/adj_mx.pkl
 ```
-More details can be checked in the github of original DCRNN authors: `https://github.com/liyaguang/DCRNN`.
+More details can be checked in the github of original DCRNN: `https://github.com/liyaguang/DCRNN`.
 
 
 ## 3. Model Training
