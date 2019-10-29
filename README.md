@@ -136,7 +136,7 @@ conda install netcdf4
 ```
 More details of wrf-python is avaiable in `http://www.ncl.ucar.edu/Training/Tutorials/WRF_Users_Workshop/python.shtml`
 
-## 2. Data-preprecessing
+## 2. Data preprecessing
 
 There are several steps for data preprocessing:  
 
