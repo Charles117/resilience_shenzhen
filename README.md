@@ -176,7 +176,7 @@ In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the author
 
 (2) Loss functions. The loss function cannot be directly changed in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). You need to change the codes in [model/dcrnn_supervisor.py](https://github.com/Charles117/resilience_shenzhen/tree/master/model/dcrnn_supervisor.py), `Line 79, 233-234, 285-294` to other loss functions. Remember, import the metrics first, like `from lib.metrics import masked_mae_loss, masked_rmse_loss, masked_mse_loss`
 
-(3) Hyper-parameters. The major hyper-meter of DCRNN are iffusion stes, nodes and layers, which can be tuned in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). The name of the file of a well-trained model means `diffusion_step-timestep-nodes(layers)-learning_rate-batchsize`, e.g. dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4. 
+(3) Hyper-parameters. The major hyper-meters of DCRNN are diffusion stes, nodes and layers, which can be tuned in [dcrnn_sz.yaml](https://github.com/Charles117/resilience_shenzhen/tree/master/dcrnn_sz.yaml). The file name of a well-trained model means `diffusion_step-timestep-nodes(layers)-learning_rate-batchsize`, e.g. dcrnn_DR_1_h_24_256-256_lr_0.01_bs_4. 
 
 The model train process can be started with (runging in linux backend):
 ```bash
