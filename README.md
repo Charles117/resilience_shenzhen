@@ -193,7 +193,7 @@ Note, [config_inference_sz.yaml](https://github.com/Charles117/resilience_shenzh
 
 ## Acknowledgements
 
-We thank Li et al. to publish their codes of original DCRNN to facilitate this research field, which are cited from:
+We thank Li et al. for publishing their codes of original DCRNN to facilitate this research field, which are cited from:
 
 ```
 https://github.com/liyaguang/DCRNN
