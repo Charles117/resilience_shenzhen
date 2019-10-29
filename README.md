@@ -155,7 +155,7 @@ We extact meteorological data from wrfout data, like `wrfout_d01_2018-01-01_00:0
 Codes can be checked here: [data_preprocessing/wrf_extraction_shenzhen.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/wrf_extraction_shenzhen.py)
 
 ### 2.2 Build the model input 
-We first merge traffic data and meteorological data, then form them together for building a model input for DCRNN.
+We first merge traffic data and meteorological data, then form them together to build a model input for DCRNN.
 Codes can be checked here: 
 [data_preprocessing/merge_data_and_build_input.py](https://github.com/Charles117/resilience_shenzhen/tree/master/data_preprocessing/merge_data_and_build_input.py)
 
