@@ -28,7 +28,7 @@ The data this research utilized can be divided into two parts: traffic speed dat
 
 
 ### 1.1 Traffic speed data.
-Researchers can apply for a full dataset by themselves from GAIA Open Dataset Initiative of DiDi, which is available in `https://outreach.didichuxing.com/research/opendata/en/` The format of traffic data is:
+Researchers can apply for a full dataset by themselves from GAIA Open Dataset Initiative of DiDi, which is available at `https://outreach.didichuxing.com/research/opendata/en/` The format of traffic data is:
 
 | road_id | longitude | latitude | time | road_speed |
 |:---:|:---------:|:---------:|:---------------------------:|----------:|
