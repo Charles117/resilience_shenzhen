@@ -23,7 +23,7 @@ The codes of this research also partly belong to DiDi, but we could publish part
 
 The specific process of data-preparation, data-preprocessing and model-building are carefully descripted in following steps:
 
-## 1. Data preparation
+## 1. Data Preparation
 The data this research utilized can be divided into two parts: traffic speed data and meteorological data. 
 
 
@@ -136,7 +136,7 @@ conda install netcdf4
 ```
 More details of wrf-python is avaiable in `http://www.ncl.ucar.edu/Training/Tutorials/WRF_Users_Workshop/python.shtml`
 
-## 2. Data preprocessing
+## 2. Data Preprocessing
 
 There are several steps for data preprocessing:  
 
