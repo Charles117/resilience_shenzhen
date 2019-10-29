@@ -161,7 +161,7 @@ Codes can be checked here:
 
 
 ### 2.3 Graph Construction
-The current implementation is based on Shenzhen network distances between sensors. However, we could not publish the specific locations of sensors right now, due to the DiDi's concenrn about information security. You can apply for the traffic data from GAIA Open Dataset first, and then build the graph by yourselves with [scripts/gen_adj_mx.py](https://github.com/Charles117/resilience_shenzhen/tree/master/scripts/gen_adj_mx.py).
+The current implementation is based on Shenzhen network distances between sensors. However, we could not publish the specific locations of sensors right now, due to the DiDi's concern about information security. You can apply for the traffic data from GAIA Open Dataset first, and then build the graph by yourselves with [scripts/gen_adj_mx.py](https://github.com/Charles117/resilience_shenzhen/tree/master/scripts/gen_adj_mx.py).
  ```bash
 python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/graph_sensor_ids.txt --normalized_k=0.1\
     --output_pkl_filename=data/sensor_graph/adj_mx.pkl
