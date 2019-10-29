@@ -170,7 +170,7 @@ More details can be checked in the github of original DCRNN: `https://github.com
 
 
 ## 3. Model Training
-In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the authors implemented an experiment of one-dim feature input (previous speed) to one-dim feature output (future speed), and claimed that the model could also map "N-dimensional features to M-dimensional outputs". However, there were still some bugs when we really implemented a N-to-M dimension modelling. Thus, we checked tha codes and fixed these bugs in the revised codes. 
+In the github of original DCRNN `https://github.com/liyaguang/DCRNN`, the authors implemented an experiment of one-dim feature input (previous speed) to one-dim feature output (future speed), and claimed that the model could also map "N-dimensional features to M-dimensional outputs". However, there were still some bugs when we really implemented a N-to-M dimension modelling. Thus, we checked the codes and finally fixed these bugs in the revised codes. 
 
 Additionally, several things should be paid attention to before you employ DCRNN in your research.
 
