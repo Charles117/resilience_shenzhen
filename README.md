@@ -30,18 +30,18 @@ The data this research utilized can be divided into two parts: traffic speed dat
 ### 1.1 Traffic speed data.
 Researchers can apply for a full dataset by themselves from GAIA Open Dataset Initiative of DiDi, which is available in `https://outreach.didichuxing.com/research/opendata/en/` The format of traffic data is:
 
-| road_id | longitude | latitude | time | distance | road_speed |
-|:---:|:---------:|:---------:|:---------------------:|:-----:|------:|
-| 0A  | 114.10515	| 22.57997	| 2017-04-07 00:00:00		| 597.0	| 14.504627 | 
-| 0A  | 114.10515	| 22.57997	| 2017-04-07 01:00:00		| 597.0	| 13.641906 | 
-| 0A  | 114.10515	| 22.57997	| 2017-04-07 02:00:00		| 597.0	| 15.289080 | 
-| 0A  | 114.10515	| 22.57997	| 2017-04-07 03:00:00		| 597.0	| 13.940859 | 
-| 0A	| 114.10515	| 22.57997	| 2017-04-07 04:00:00		| 597.0	| 15.947758 | 
-| 0A	| 114.10515	| 22.57997	| 2017-04-07 05:00:00		| 597.0	| 14.272239 | 
-| 0A	| 114.10515	| 22.57997	| 2017-04-07 06:00:00		| 597.0	| 11.553982 | 
-| 0A	| 114.10515	| 22.57997	| 2017-04-07 07:00:00		| 597.0	| 11.226242 | 
-| 0A	| 114.10515	| 22.57997	| 2017-04-07 08:00:00		| 597.0	| 11.967376 | 
-|...  |    ...    |    ...    |    ...                |  ...  |    ...    |
+| road_id | longitude | latitude | time | road_speed |
+|:---:|:---------:|:---------:|:---------------------------:|----------:|
+| 0A  | 114.10515	| 22.57997	| 2017-04-07 00:00:00		| 14.504627 | 
+| 0A  | 114.10515	| 22.57997	| 2017-04-07 01:00:00		| 13.641906 | 
+| 0A  | 114.10515	| 22.57997	| 2017-04-07 02:00:00		| 15.289080 | 
+| 0A  | 114.10515	| 22.57997	| 2017-04-07 03:00:00		| 13.940859 | 
+| 0A	| 114.10515	| 22.57997	| 2017-04-07 04:00:00		| 15.947758 | 
+| 0A	| 114.10515	| 22.57997	| 2017-04-07 05:00:00		| 14.272239 | 
+| 0A	| 114.10515	| 22.57997	| 2017-04-07 06:00:00		| 11.553982 | 
+| 0A	| 114.10515	| 22.57997	| 2017-04-07 07:00:00		| 11.226242 | 
+| 0A	| 114.10515	| 22.57997	| 2017-04-07 08:00:00		| 11.967376 | 
+|...  |    ...    |    ...    |    ...             |    ...    |
 
 
 ### 1.2 meteorological data
@@ -57,7 +57,7 @@ https://www.mmm.ucar.edu/weather-research-and-forecasting-model
 ```
 The handbook of WRF is here [WRF\WRFUsersGuide.pdf](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/WRFUsersGuide.pdf)
 
-*** Requirements: a linux system (like Ubuntu 16.04), and basic knowlogde of linux, fortran, commands of shell.
+*** Requirements: a linux system (like Ubuntu 16.04), and basic knowlogde of linux, fortran, and commands of shell.
 
 ### 1.2.1. Install WRF
 Detailed steps can be checked here: 
@@ -105,7 +105,7 @@ See steps of 6. Static Geography Dat; 7. Real-time Data in the compilation tutor
 
 ### 1.2.3. Run WPS and WRF
 Details steps can be checked in 8. Running WPS and 9. Running WRF in the above compilation_tutorial.
-The two config files containing specific parameters to generate meteorological data in Shenzhen is listed as [WRF\namelist_shenzhen.input](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/namelist_shenzhen.input) and [WRF\namelist_shenzhen.wps](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/namelist_shenzhen.wps)
+The two config files containing specific parameters to generate meteorological data in Shenzhen are listed as [WRF\namelist_shenzhen.input](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/namelist_shenzhen.input) and [WRF\namelist_shenzhen.wps](https://github.com/Charles117/resilience_shenzhen/tree/master/WRF/namelist_shenzhen.wps)
 
 ### 1.2.4. Install NCL
 The NCAR Command Language (NCL), a product of the Computational & Information Systems Laboratory at the National Center for Atmospheric Research (NCAR) and sponsored by the National Science Foundation, is a free interpreted language designed specifically for scientific data processing and visualization.
@@ -161,7 +161,7 @@ Codes can be checked here:
 
 
 ### 2.3 Graph Construction
-The current implementation is based on Shenzhen network distances between sensors. However, we could not publish the specific locations of sensors right now, due to the DiDi's concenrn of information security. You can apply for the traffic data from GAIA Open Dataset first, and then build the graph by yourselves with [scripts/gen_adj_mx.py](https://github.com/Charles117/resilience_shenzhen/tree/master/scripts/gen_adj_mx.py).
+The current implementation is based on Shenzhen network distances between sensors. However, we could not publish the specific locations of sensors right now, due to the DiDi's concenrn about information security. You can apply for the traffic data from GAIA Open Dataset first, and then build the graph by yourselves with [scripts/gen_adj_mx.py](https://github.com/Charles117/resilience_shenzhen/tree/master/scripts/gen_adj_mx.py).
  ```bash
 python -m scripts.gen_adj_mx  --sensor_ids_filename=data/sensor_graph/graph_sensor_ids.txt --normalized_k=0.1\
     --output_pkl_filename=data/sensor_graph/adj_mx.pkl
