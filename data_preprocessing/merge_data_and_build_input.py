@@ -203,6 +203,39 @@ def form_rnn(df, train, test, file_name, sites, forecast, parameters, prev_param
 
     return X, Y
 
+def generate_train_val_test(x, y, output_dir):
+    # x: (num_samples, input_length, num_nodes, input_dim)
+    # y: (num_samples, output_length, num_nodes, output_dim)
+
+    print("x shape: ", x.shape, ", y shape: ", y.shape)
+    # Write the data into npz file.
+    # 7/10 is used for training.
+    # 1/10 is used for validation.
+    # 2/10 is used for test.
+    num_samples = x.shape[0]
+    num_test = round(num_samples * 0.2)
+    num_train = round(num_samples * 0.7)
+    num_val = num_samples - num_test - num_train
+
+    # train
+    x_train, y_train = x[:num_train], y[:num_train]
+    # val
+    x_val, y_val = (
+        x[num_train: num_train + num_val],
+        y[num_train: num_train + num_val],
+    )
+    # test
+    x_test, y_test = x[-num_test:], y[-num_test:]
+
+    for cat in ["train", "val", "test"]:
+        _x, _y = locals()["x_" + cat], locals()["y_" + cat]
+        print(cat, "x: ", _x.shape, "y:", _y.shape)
+        np.savez_compressed(
+            os.path.join(output_dir, "%s.npz" % cat),
+            x=_x,
+            y=_y,
+        )
+
 def main():
     input_step = 24
     timesteps_in = 24
@@ -309,13 +342,69 @@ def main():
 
     print('[INFO] starting to generate rnn-form data.')
 
-    ## output data
+    ## output intermediate data
     X.to_csv('{folder}/{name}.csv'.format(folder=save_path, name='X14'), index=False, float_format='%.6f')
     Y.to_csv('{folder}/{name}.csv'.format(folder=save_path, name='Y1'), index=False, float_format='%.6f')
+    
+    INPUT_NUM = 642  ##days or samples
+    OUTPUT_NUM = 642
+    TIMESTEPS_IN_SLICE = 24
+    TIMESTEPS_OUT_SLICE = 24
+    SITES = 1378
+
+    X_DIM = len(PARAMETERS) *2 + 2
+    Y_DIM = 1
+    
+    df_X = X.copy(deep=True)
+    df_Y = Y.copy(deep=True)
+
+    df_X = df_X.drop(['date'], axis=1).values
+    df_X = df_X.reshape((INPUT_NUM, SITES, X_DIM, TIMESTEPS_IN_SLICE), order='C')
+    # Current shape: num_samples, num_nodes, input_dim, input_length
+    df_X = df_X.swapaxes(1, 3)
+    # Current shape: num_samples, input_length, input_dim, num_nodes
+    df_X = df_X.swapaxes(2, 3)
+    # Current shape: num_sample, input_length, num_nodes, input_dim
+    print(df_X.shape)
+    
+    ## concat zero matrix to match the shape of Y to the shape of X 
+    df_0 = np.zeros(shape=(X.shape[0], X.shape[1] - Y.shape[1]))
+    print(df_0.shape)
+
+    df_Y = df_Y.drop(['date'], axis=1).values
+    df_Y = np.concatenate((df_Y, df_0), axis=1)
+    print(df_Y.shape)
+
+    df_Y = df_Y.reshape((OUTPUT_NUM, X_DIM, SITES, TIMESTEPS_OUT_SLICE), order='C')
+    # df_Y = df_Y.reshape((OUTPUT_NUM, SITES, X_DIM, TIMESTEPS_OUT_SLICE), order='C')
+    # Current shape: date, param, site, seq(slice)
+    df_Y = df_Y.swapaxes(1, 3)
+    # Current shape: num_samples, input_length, num_nodes, input_dim
+
+    PATH = os.path.abspath('sz_data_merge_output_1909016')
+    generate_train_val_test(df_X, df_Y, PATH)
+    
+    date = X[['date']]
+    date_num = len(date_X)
+
+    num_test = round(date_num * 0.2)
+    num_train = round(date_num * 0.7)
+    num_val = date_num - num_test - num_train
+
+    date_train = date[:num_train]
+    date_val = date[num_train: num_train + num_val]
+    date_test = date[-num_test:]
+    print(date_test)
+
+    ## output train, val, test dataset
+    date_train.to_csv('{folder}/{filename}.csv'.format(folder=PATH, filename='date_train'), index=False)
+    date_val.to_csv('{folder}/{filename}.csv'.format(folder=PATH, filename='date_val'), index=False)
+    date_test.to_csv('{folder}/{filename}.csv'.format(folder=PATH, filename='date_test'), index=False)
 
     print('[INFO] rnn-form data has been built.')
 
     print("[INFO] Merging End!")
+    
     
 if __name__ == "__main__":
     print("[INFO] Merging Begin")
